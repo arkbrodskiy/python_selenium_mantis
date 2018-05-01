@@ -34,7 +34,7 @@ class JamesHelper:
 
         def is_user_registered(self, username):
             self.write("verify %s" % username)
-            res = self.telnet.expect([b'exists'], [b'does not exist'])
+            res = self.telnet.expect([b'exists', b'does not exist'])
             return res[0] == 0
 
         def create_user(self, username, password):
@@ -46,4 +46,4 @@ class JamesHelper:
             self.read_until("Password for %s reset" % username)
 
         def quit(self):
-            self.telnet.write("quit")
+            self.write("quit")
