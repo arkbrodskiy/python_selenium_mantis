@@ -20,5 +20,8 @@ class SignupHelper:
         wd.find_element_by_css_selector("input[value='Update User']").click()
 
     def extract_confirmation_url(self, text):
-        return re.search('http://.+\n.+\n.+', text).group(0).replace('\n', '')
+        test = re.search('http://.+\n.+\n.+', text).group(0)
+        test1 = test.replace('=\n', '')
+        return test1
+
 
