@@ -1,3 +1,4 @@
+from sys import maxsize
 
 
 class ProjectHelper:
@@ -8,9 +9,9 @@ class ProjectHelper:
     def __init__(self, app):
         self.app = app
 
-    def create_project(self, name):
+    def create_project(self, project):
         self.init_create_project()
-        self.fill_project_form(name)
+        self.fill_project_form(project.name)
         self.click_proceed()
 
     def init_create_project(self):
@@ -61,3 +62,9 @@ class ProjectHelper:
             if element.text == name:
                 element.click()
                 break
+
+    def id_or_max(self, project):
+        if project.id:
+            return int(project.id)
+        else:
+            return maxsize
