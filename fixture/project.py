@@ -48,10 +48,10 @@ class ProjectHelper:
         wd = self.app.wd
         return len(wd.find_elements_by_css_selector(self.row_selector))
 
-    def delete_some_project(self, name):
+    def delete_project(self, project):
         wd = self.app.wd
         assert self.projects_count() > 0
-        self.go_to_project(name)
+        self.go_to_project(project.name)
         wd.find_element_by_css_selector("[value='Delete Project']").click()
         wd.find_element_by_css_selector(".center [value='Delete Project']").click()
 

@@ -22,7 +22,7 @@ class Application:
             raise ValueError('Unrecognized browser %s' % browser)
         self.base_url = config['web']['base_url']
         self.config = config
-        self.wd.implicitly_wait(1)
+        self.wd.implicitly_wait(3)
         self.session = SessionHelper(self)
         self.project = ProjectHelper(self)
         self.james = JamesHelper(self)
