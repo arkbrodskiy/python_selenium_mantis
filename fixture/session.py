@@ -19,6 +19,7 @@ class SessionHelper:
 
     def logout(self):
         wd = self.app.wd
+        wd.find_element_by_css_selector('.dropdown-toggle').click()
         wd.find_element_by_link_text("Logout").click()
 
     def ensure_login(self, username, password):
